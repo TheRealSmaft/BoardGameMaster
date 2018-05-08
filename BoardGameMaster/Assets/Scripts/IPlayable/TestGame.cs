@@ -6,7 +6,6 @@ using UnityEngine;
 public class TestGame : MonoBehaviour, IDicePlayable {
 
     private GameMaster gameMaster;
-
     public ActionScriptManager actionScriptManager;
     
     public void SetupGame(GameMaster gm)
@@ -27,6 +26,7 @@ public class TestGame : MonoBehaviour, IDicePlayable {
     {
         Type type = action.GetType();
         Component clone = p.AddComponent(type);
+        
         System.Reflection.FieldInfo[] fields = type.GetFields();
 
         foreach(System.Reflection.FieldInfo field in fields)
@@ -45,13 +45,13 @@ public class TestGame : MonoBehaviour, IDicePlayable {
     {
         Debug.Log("Start Player Turn");
         p.gameObject.SetActive(true);
-        p.ToggleBehaviorScript("DiceRoller", true);
+        p.ToggleBehaviorScript<DiceRoller>(p.GetComponentInChildren<DiceRoller>(), true);
     }
 
     public void EndPlayerTurn(Player p)
     {
         p.gameObject.SetActive(false);
-        p.ToggleBehaviorScript("DiceRoller", false);
+        p.ToggleBehaviorScript<DiceRoller>(p.GetComponentInChildren<DiceRoller>(), false);
         StartPlayerTurn(gameMaster.GetNextPlayer(p));
     }
 
@@ -72,6 +72,6 @@ public class TestGame : MonoBehaviour, IDicePlayable {
 
     public void ActivateDiceActions(Player p)
     {
-        //p.ToggleBehaviorScript("DiceSelector", true);
+        p.ToggleBehaviorScript<DiceSelector>(p.GetComponentInChildren<DiceSelector>(), true);
     }
 }

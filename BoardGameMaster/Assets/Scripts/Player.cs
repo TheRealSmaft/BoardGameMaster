@@ -13,12 +13,15 @@ public class Player : MonoBehaviour {
         game.AddRelevantPlayerActionScripts(this);
     }
 
-    public void ToggleBehaviorScript(string action, bool active)
+    public void ToggleBehaviorScript<T>(T action, bool active) where T : PlayerAction
     {
         try
         {
-            MonoBehaviour script = GetComponent(action) as MonoBehaviour;
+            MonoBehaviour script = GetComponentInChildren<T>() as MonoBehaviour;
             script.enabled = active;
+            script.GetComponent<T>().active = active;
+            script.GetComponent<T>().Init();
+
         }
         catch (Exception e)
         {

@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiceSelector : MonoBehaviour {
+public class DiceSelector : PlayerAction {
 
-	// Use this for initialization
-	void Start () {
-        Debug.Log("DICE SELECTO");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void Init()
+    {
+        base.Init();
+        Debug.Log("HIYAYA");
+    }
+
+    private void Update()
+    {
+        
+    }
 }

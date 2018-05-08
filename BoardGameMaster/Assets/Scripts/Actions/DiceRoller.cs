@@ -2,45 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiceRoller : MonoBehaviour {
+public class DiceRoller : PlayerAction {
 
-    public int turnActionLimit;
     public Die diePrefab;
     public int diceCount;
 
-    private Player player;
     private DiceManager diceManager;
     private List<Die> dice = new List<Die>();
     private bool diceRolling;
 
-    private void Awake()
+    public override void Init()
     {
-        player = GetComponent<Player>();
+        base.Init();
         diceManager = gameObject.AddComponent<DiceManager>();
         diceManager.AssignPlayer(player);
     }
 
     private void Update()
     {
-        if(Input.GetButtonDown("Fire1") && !diceRolling && turnActionLimit > 0)
+        if (_active)
         {
-            RollDice();
-            diceRolling = true;
-        }
-
-        if(diceRolling)
-        {
-            foreach(Die die in dice)
+            if (Input.GetButtonDown("Fire1") && !diceRolling && actionLimit > 0)
             {
-                if(die.dieValue == 0)
-                {
-                    break;
-                }
+                RollDice();
+                diceRolling = true;
+            }
 
-                if(dice.IndexOf(die) + 1 >= dice.Count)
+            if (diceRolling)
+            {
+                foreach (Die die in dice)
                 {
-                    diceRolling = false;
-                    diceManager.SubmitDice(dice);
+                    if (die.dieValue == 0)
+                    {
+                        break;
+                    }
+
+                    if (dice.IndexOf(die) + 1 >= dice.Count)
+                    {
+                        diceRolling = false;
+                        diceManager.SubmitDice(dice);
+                    }
                 }
             }
         }
@@ -48,10 +49,10 @@ public class DiceRoller : MonoBehaviour {
 
     public void RollDice()
     {
-        turnActionLimit--;
+        actionLimit--;
         StartCoroutine(InstantiateDice());
 
-        if (turnActionLimit <= 0)
+        if (actionLimit <= 0)
         {
             this.enabled = false;
         }

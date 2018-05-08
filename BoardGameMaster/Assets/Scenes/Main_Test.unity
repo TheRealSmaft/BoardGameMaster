@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2de9fc4c425bcf4eb5db74e26b9516c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnActionLimit: 3
+  actionLimit: 3
   diePrefab: {fileID: 114937752667967030, guid: acdec9844216f4f44a1427740d5fbc24,
     type: 2}
   diceCount: 5
@@ -378,6 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8495ab47d2c66ce4e99b44812437af2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionLimit: 0
 --- !u!1001 &1814054581
 Prefab:
   m_ObjectHideFlags: 0
