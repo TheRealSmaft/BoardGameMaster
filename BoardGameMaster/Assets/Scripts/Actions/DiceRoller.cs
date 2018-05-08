@@ -50,7 +50,16 @@ public class DiceRoller : PlayerAction {
     public void RollDice()
     {
         actionLimit--;
-        StartCoroutine(InstantiateDice());
+        if(dice.Count > 0)
+        {
+            diceManager.DestroyUnselectedDice();
+        }
+
+        int diceToInstantiate = diceCount - diceManager.GetSelectedDiceCount();
+        if (diceToInstantiate > 0)
+        {
+            StartCoroutine(InstantiateDice(diceToInstantiate));
+        }
 
         if (actionLimit <= 0)
         {
@@ -58,9 +67,9 @@ public class DiceRoller : PlayerAction {
         }
     }
 
-    private IEnumerator InstantiateDice()
+    private IEnumerator InstantiateDice(int diceToInstantiate)
     {
-        for (int i = 0; i < diceCount; i++)
+        for (int i = 0; i < diceToInstantiate; i++)
         {
             Die die = Instantiate(diePrefab, player.transform);
             dice.Add(die);

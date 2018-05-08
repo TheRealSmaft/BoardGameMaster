@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IDicePlayable : IPlayable {
 
-    void ActivateDiceActions(Player p);
+    void ActivatePostDiceRollActions(Player p);
 }

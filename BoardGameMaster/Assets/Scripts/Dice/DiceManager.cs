@@ -6,7 +6,7 @@ public class DiceManager : MonoBehaviour {
 
     private IDicePlayable game;
     private Player player;
-    private List<Die> dice;
+    private List<Die> unselectedDice;
     private List<Die> selectedDice = new List<Die>();
 
     private void Awake()
@@ -21,22 +21,43 @@ public class DiceManager : MonoBehaviour {
 
     public void SubmitDice(List<Die> dl)
     {
-        dice = dl;
-        game.ActivateDiceActions(player);
+        unselectedDice = dl;
+        game.ActivatePostDiceRollActions(player);
     }
 
     public void ToggleDieSelection(Die die)
     {
-        if(dice.Contains(die))
+        if(unselectedDice.Contains(die))
         {
             if(selectedDice.Contains(die))
             {
                 selectedDice.Remove(die);
+                unselectedDice.Add(die);
+                die.ToggleSelected(false);
             }
             else
             {
+                unselectedDice.Remove(die);
                 selectedDice.Add(die);
+                die.ToggleSelected(true);
             }
         }
+    }
+
+    public void DestroyUnselectedDice()
+    {
+        foreach(Die die in unselectedDice)
+        {
+            if (!selectedDice.Contains(die))
+            {
+                die.DestroyDie();
+            }
+        }
+        unselectedDice.Clear();
+    }
+
+    public int GetSelectedDiceCount()
+    {
+        return selectedDice.Count;
     }
 }

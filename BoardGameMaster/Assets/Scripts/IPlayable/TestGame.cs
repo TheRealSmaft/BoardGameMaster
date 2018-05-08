@@ -70,7 +70,7 @@ public class TestGame : MonoBehaviour, IDicePlayable {
         
     }
 
-    public void ActivateDiceActions(Player p)
+    public void ActivatePostDiceRollActions(Player p)
     {
         p.ToggleBehaviorScript<DiceSelector>(p.GetComponentInChildren<DiceSelector>(), true);
     }
