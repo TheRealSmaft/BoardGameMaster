@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Die : MonoBehaviour
 {
-    public int value = 0;
+    public int dieValue = 0;
     private int face;
     private Player player;
     private Rigidbody rb;
@@ -18,9 +18,9 @@ public class Die : MonoBehaviour
 
     private void Update()
     {
-        if(rb.velocity == Vector3.zero && value == 0)
+        if(rb.velocity == Vector3.zero && dieValue == 0)
         {
-            value = face;
+            dieValue = face;
         }
 
         if(rerollCountdown > 0f)
@@ -29,7 +29,7 @@ public class Die : MonoBehaviour
         }
         else
         {
-            if(value == 0)
+            if(dieValue == 0)
             {
                 Reroll();
             }

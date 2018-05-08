@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class DiceRoller : MonoBehaviour {
 
+    public int turnActionLimit;
     public Die diePrefab;
     public int diceCount;
 
     private Player player;
+    private DiceManager diceManager;
     private List<Die> dice = new List<Die>();
     private bool diceRolling;
 
     private void Awake()
     {
         player = GetComponent<Player>();
+        diceManager = gameObject.AddComponent<DiceManager>();
+        diceManager.AssignPlayer(player);
     }
 
     private void Update()
     {
-        if(Input.GetButtonDown("Fire1") && !diceRolling)
+        if(Input.GetButtonDown("Fire1") && !diceRolling && turnActionLimit > 0)
         {
             RollDice();
             diceRolling = true;
@@ -28,7 +32,7 @@ public class DiceRoller : MonoBehaviour {
         {
             foreach(Die die in dice)
             {
-                if(die.value == 0)
+                if(die.dieValue == 0)
                 {
                     break;
                 }
@@ -36,7 +40,7 @@ public class DiceRoller : MonoBehaviour {
                 if(dice.IndexOf(die) + 1 >= dice.Count)
                 {
                     diceRolling = false;
-                    player.SubmitDice(dice);
+                    diceManager.SubmitDice(dice);
                 }
             }
         }
@@ -44,8 +48,13 @@ public class DiceRoller : MonoBehaviour {
 
     public void RollDice()
     {
-        player.AcknowledgeAction("DiceRoller");
+        turnActionLimit--;
         StartCoroutine(InstantiateDice());
+
+        if (turnActionLimit <= 0)
+        {
+            this.enabled = false;
+        }
     }
 
     private IEnumerator InstantiateDice()

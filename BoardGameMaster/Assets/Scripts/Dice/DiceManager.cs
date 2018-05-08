@@ -4,13 +4,39 @@ using UnityEngine;
 
 public class DiceManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private IDicePlayable game;
+    private Player player;
+    private List<Die> dice;
+    private List<Die> selectedDice = new List<Die>();
+
+    private void Awake()
+    {
+        game = GameObject.FindGameObjectWithTag("GameMaster").GetComponentInChildren<IPlayable>() as IDicePlayable;
+    }
+
+    public void AssignPlayer(Player p)
+    {
+        player = p;
+    }
+
+    public void SubmitDice(List<Die> dl)
+    {
+        dice = dl;
+        game.ActivateDiceActions(player);
+    }
+
+    public void ToggleDieSelection(Die die)
+    {
+        if(dice.Contains(die))
+        {
+            if(selectedDice.Contains(die))
+            {
+                selectedDice.Remove(die);
+            }
+            else
+            {
+                selectedDice.Add(die);
+            }
+        }
+    }
 }

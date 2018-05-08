@@ -3,18 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestGame : MonoBehaviour, IPlayable {
+public class TestGame : MonoBehaviour, IDicePlayable {
 
     private GameMaster gameMaster;
-    private Dictionary<string, int> playerTurnActionLimits = new Dictionary<string, int>();
 
-    public Component[] playerActionScripts;
-
-    private void Awake()
-    {
-        playerTurnActionLimits.Add("DiceRoller", 3);
-    }
-
+    public ActionScriptManager actionScriptManager;
+    
     public void SetupGame(GameMaster gm)
     {
         gameMaster = gm;
@@ -23,7 +17,7 @@ public class TestGame : MonoBehaviour, IPlayable {
 
     public void AddRelevantPlayerActionScripts(Player p)
     {
-        foreach(Component c in playerActionScripts)
+        foreach(Component c in actionScriptManager.actionScripts)
         {
             AddScriptToPlayer<Component>(c, p.gameObject);
         }
@@ -63,18 +57,7 @@ public class TestGame : MonoBehaviour, IPlayable {
 
     public void EvaluateTurnActions(Player p)
     {
-        Dictionary<string, int> playerActions = p.GetPlayerActions();
-
-        foreach(KeyValuePair<string, int> action in playerActions)
-        {
-            if(playerTurnActionLimits.ContainsKey(action.Key))
-            {
-                if(action.Value >= playerTurnActionLimits[action.Key])
-                {
-                    EndPlayerTurn(p);
-                }
-            }
-        }
+        
     }
 
     public void CheckIfGameShouldEnd()
@@ -85,5 +68,10 @@ public class TestGame : MonoBehaviour, IPlayable {
     public void EndGame()
     {
         
+    }
+
+    public void ActivateDiceActions(Player p)
+    {
+        //p.ToggleBehaviorScript("DiceSelector", true);
     }
 }

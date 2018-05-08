@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Die
   - DieDropZone
+  - GameMaster
   layers:
   - Default
   - TransparentFX
