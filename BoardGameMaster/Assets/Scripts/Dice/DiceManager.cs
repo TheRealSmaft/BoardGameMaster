@@ -27,20 +27,17 @@ public class DiceManager : MonoBehaviour {
 
     public void ToggleDieSelection(Die die)
     {
-        if(unselectedDice.Contains(die))
+        if(selectedDice.Contains(die))
         {
-            if(selectedDice.Contains(die))
-            {
-                selectedDice.Remove(die);
-                unselectedDice.Add(die);
-                die.ToggleSelected(false);
-            }
-            else
-            {
-                unselectedDice.Remove(die);
-                selectedDice.Add(die);
-                die.ToggleSelected(true);
-            }
+            selectedDice.Remove(die);
+            unselectedDice.Add(die);
+            die.ToggleSelected(false);
+        }
+        else if(unselectedDice.Contains(die))
+        {
+            unselectedDice.Remove(die);
+            selectedDice.Add(die);
+            die.ToggleSelected(true);
         }
     }
 

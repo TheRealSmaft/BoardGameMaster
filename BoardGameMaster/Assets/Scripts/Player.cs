@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
     public void AssignGame(IPlayable g)
     {
         game = g;
-        game.AddRelevantPlayerActionScripts(this);
+        game.actionScriptManager.AddRelevantPlayerActionScripts(this);
     }
 
     public void ToggleBehaviorScript<T>(T action, bool active) where T : PlayerAction
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
         catch (Exception e)
         {
             Debug.LogException(e, this);
-            Debug.Log(action + " is not a script attached to " + this.name + "!");
+            Debug.Log(action.ToString() + " is not a script attached to " + this.name + "!");
         }
     }
 

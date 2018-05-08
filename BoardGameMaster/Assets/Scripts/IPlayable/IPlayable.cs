@@ -4,9 +4,11 @@ using UnityEngine;
 
 public interface IPlayable {
 
+    GameMaster gameMaster { get; }
+    ActionScriptManager actionScriptManager { get; }
+
     void SetupGame(GameMaster gm);
     void StartGame(Player p);
-    void AddRelevantPlayerActionScripts(Player p);
     void EndGame();
     void StartPlayerTurn(Player p);
     void EndPlayerTurn(Player p);
