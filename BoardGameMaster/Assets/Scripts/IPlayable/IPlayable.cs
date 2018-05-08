@@ -6,8 +6,10 @@ public interface IPlayable {
 
     void SetupGame(GameMaster gm);
     void StartGame(Player p);
+    void AddRelevantPlayerActionScripts(Player p);
     void EndGame();
     void StartPlayerTurn(Player p);
     void EndPlayerTurn(Player p);
-    void CheckForWinner();
+    void EvaluateTurnActions(Player p);
+    void CheckIfGameShouldEnd();
 }
