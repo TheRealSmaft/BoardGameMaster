@@ -11,6 +11,11 @@ public class GameMaster : MonoBehaviour {
     {
         game = GetComponentInChildren<IPlayable>();
         game.SetupGame(this);
+
+        foreach(Player p in players)
+        {
+            p.AssignGame(game);
+        }
     }
 
     private void Start()

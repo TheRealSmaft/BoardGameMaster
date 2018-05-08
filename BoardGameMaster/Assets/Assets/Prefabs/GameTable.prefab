@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4021418077265978}
   - component: {fileID: 95604578921612226}
   - component: {fileID: 114568903107583468}
+  - component: {fileID: 114396953981331182}
   m_Layer: 0
   m_Name: GameTable
-  m_TagString: Untagged
+  m_TagString: GameMaster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +93,7 @@ GameObject:
   - component: {fileID: 64952949074961810}
   m_Layer: 0
   m_Name: Green
-  m_TagString: Untagged
+  m_TagString: DieDropZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -349,6 +350,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114396953981331182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289342615197930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb9ae8ad3430ec42955c737efc8f84f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionScriptManager: {fileID: 0}
 --- !u!114 &114568903107583468
 MonoBehaviour:
   m_ObjectHideFlags: 1
