@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public string playerName;
     private IPlayable game;
 
     public void AssignGame(IPlayable g)

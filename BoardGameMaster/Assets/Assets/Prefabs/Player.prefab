@@ -51,3 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd94bf8e94947044694f74e8c65e3bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: Charlatan

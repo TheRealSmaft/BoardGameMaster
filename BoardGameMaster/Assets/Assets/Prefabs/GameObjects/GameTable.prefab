@@ -361,7 +361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb9ae8ad3430ec42955c737efc8f84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionScriptManager: {fileID: 0}
 --- !u!114 &114568903107583468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,5 +372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94016c1d794f1434e98d5e1eea1ba05a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameUI: {fileID: 0}
   players:
   - {fileID: 0}

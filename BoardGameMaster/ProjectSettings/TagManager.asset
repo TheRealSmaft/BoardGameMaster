@@ -8,6 +8,7 @@ TagManager:
   - DieDropZone
   - GameMaster
   - ActionScriptManager
+  - GameUI
   layers:
   - Default
   - TransparentFX

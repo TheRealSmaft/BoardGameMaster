@@ -6,6 +6,7 @@ using UnityEngine;
 public class TestGame : MonoBehaviour, IDicePlayable {
 
     private GameMaster _gameMaster;
+    private GameUI _gameUI;
     private ActionScriptManager _actionScriptManager;
 
     public GameMaster gameMaster
@@ -19,6 +20,19 @@ public class TestGame : MonoBehaviour, IDicePlayable {
             _gameMaster = value;
         }
     }
+
+    public GameUI gameUI
+    {
+        get
+        {
+            return _gameUI;
+        }
+        private set
+        {
+            _gameUI = value;
+        }
+    }
+
     public ActionScriptManager actionScriptManager
     {
         get
@@ -31,9 +45,10 @@ public class TestGame : MonoBehaviour, IDicePlayable {
         }
     }
     
-    public void SetupGame(GameMaster gm)
+    public void SetupGame(GameMaster gm, GameUI ui)
     {
         gameMaster = gm;
+        gameUI = ui;
         actionScriptManager = GameObject.FindGameObjectWithTag("ActionScriptManager").GetComponent<ActionScriptManager>();
     }
 

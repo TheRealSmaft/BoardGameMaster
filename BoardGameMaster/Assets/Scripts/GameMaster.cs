@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
 
+    public GameUI gameUI;
     public List<Player> players;
     private IPlayable game;
 
     private void Awake()
     {
         game = GetComponentInChildren<IPlayable>();
-        game.SetupGame(this);
+        game.SetupGame(this, gameUI);
 
         foreach(Player p in players)
         {
@@ -20,6 +21,7 @@ public class GameMaster : MonoBehaviour {
 
     private void Start()
     {
+        gameUI.PopulateOpponentPanel(players);
         game.StartGame(players[0]);
     }
 
