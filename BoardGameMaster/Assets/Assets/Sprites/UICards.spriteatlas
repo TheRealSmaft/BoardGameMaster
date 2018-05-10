@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: UICards
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 88ade148509009b49b5c25cd1d07385a, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 17013e61db5480143901642a65ab0c98, type: 3}
+  - {fileID: 21300000, guid: 6243c3f3857ea554ea8a45cab31e2a12, type: 3}
+  - {fileID: 21300000, guid: 407790f51d4a43749b00ff2c2e6bd1a5, type: 3}
+  - {fileID: 21300000, guid: 42411ff549fa6f645bb2b3c4cfa520aa, type: 3}
+  - {fileID: 21300000, guid: fcad2a6690fbd064ba5745310703b0ee, type: 3}
+  - {fileID: 21300000, guid: 0545ddf6a00586a42845212539cab675, type: 3}
+  - {fileID: 21300000, guid: baa57477bd5979344a2347a492726ba0, type: 3}
+  - {fileID: 21300000, guid: 0332ec5a1bef94e4692c460b3891445e, type: 3}
+  - {fileID: 21300000, guid: 38d08b6bee0e6c145b5e9f4222555512, type: 3}
+  - {fileID: 21300000, guid: cc04fc7b7d79ab54883e4a92ae6453f6, type: 3}
+  - {fileID: 21300000, guid: 0d76ac0d2847cf246a946492f246c27f, type: 3}
+  - {fileID: 21300000, guid: ae1447adad7ce924fa3a9e8e3cc63c26, type: 3}
+  - {fileID: 21300000, guid: 479f360f51e9514498f6bcc34c4f14bd, type: 3}
+  - {fileID: 21300000, guid: ca7c881fa0fa29b45b5ca1226d6186ae, type: 3}
+  - {fileID: 21300000, guid: b2cf78d0be251024c9e0c09e06137898, type: 3}
+  - {fileID: 21300000, guid: c62af561497650b449b50276a1b1dedd, type: 3}
+  - {fileID: 21300000, guid: 77b715d1747b00a4aa18c13839a59290, type: 3}
+  - {fileID: 21300000, guid: 160489f172ea4ec478ecb8c0992984c7, type: 3}
+  - {fileID: 21300000, guid: 096d47339d9db414fa7d6d4096522aa6, type: 3}
+  - {fileID: 21300000, guid: 244fa7c30ef8c2a4d9b224af4be354e1, type: 3}
+  - {fileID: 21300000, guid: 10c96754b0d0f884d990b8758a3914dd, type: 3}
+  - {fileID: 21300000, guid: 0c6e041582a099940a3b1852bbbc4e1e, type: 3}
+  - {fileID: 21300000, guid: b6bb9da51d02dad4eb76a9cdb5bd66ec, type: 3}
+  - {fileID: 21300000, guid: adb3a54658ce10c498063af7c9a19943, type: 3}
+  - {fileID: 21300000, guid: dcf05846e133d304bbc13cb36a1a9d3e, type: 3}
+  - {fileID: 21300000, guid: 9f26f486ec1d44842ab45b038938d070, type: 3}
+  - {fileID: 21300000, guid: d2d163d68ffcffd43a32707f300e845c, type: 3}
+  - {fileID: 21300000, guid: dea38207e32be5d4e9bf866a1b681b66, type: 3}
+  - {fileID: 21300000, guid: cb2ad367e8821f14cbef3aebde7cd4da, type: 3}
+  - {fileID: 21300000, guid: 4b18e21a4c061c14ba84f93c12918d75, type: 3}
+  - {fileID: 21300000, guid: fbbd61ca735195347a407e979fd94e6a, type: 3}
+  - {fileID: 21300000, guid: 0b7d7e3c72c37e440af12fd7114216df, type: 3}
+  - {fileID: 21300000, guid: 7e1f37bebf19e654aba238c498bf53df, type: 3}
+  - {fileID: 21300000, guid: 41c1317f09035824b883cb961c26b5a1, type: 3}
+  - {fileID: 21300000, guid: 6e60c274b8bd965449be9856a79499ad, type: 3}
+  - {fileID: 21300000, guid: a8229cc459a5e7b4b96b9a396c8461e6, type: 3}
+  - {fileID: 21300000, guid: 70b416c83ebc0f94190f071ef05bc565, type: 3}
+  - {fileID: 21300000, guid: 3937788a03b5ab5478bd7a3e5abaa66b, type: 3}
+  - {fileID: 21300000, guid: 7f1f420f279e7f54a9b717fa7af62f99, type: 3}
+  - {fileID: 21300000, guid: 32b5bbefd568eba4d898269a3ff85ec6, type: 3}
+  - {fileID: 21300000, guid: 3dece3a5d97fe0c40aa34486ebb22983, type: 3}
+  - {fileID: 21300000, guid: 15059666e4041854ba1b6606252a68a2, type: 3}
+  - {fileID: 21300000, guid: 10bf9a87391694643b242a54abe95063, type: 3}
+  - {fileID: 21300000, guid: ce15d9387e99fc14fb58842540ea6076, type: 3}
+  - {fileID: 21300000, guid: 7343bcb895d8e814f8b7236a84d57eb1, type: 3}
+  - {fileID: 21300000, guid: 2af40709da6df7b4aad877c4964109db, type: 3}
+  - {fileID: 21300000, guid: dffb763908c90fb488c65e62efc909f9, type: 3}
+  - {fileID: 21300000, guid: 51316f7a8fc1e1b489b49fb548291544, type: 3}
+  - {fileID: 21300000, guid: 233b1dcaf86e3c0428640adfe3472ebd, type: 3}
+  - {fileID: 21300000, guid: 59f63d5c9c67e7b468a4e04f929a6457, type: 3}
+  - {fileID: 21300000, guid: 3993868de0896dd4da0e76c76ea07f8a, type: 3}
+  - {fileID: 21300000, guid: 7bd183ee558651849ae263f1c412e263, type: 3}
+  - {fileID: 21300000, guid: ebf370395eccc8b45bd55a633ce95086, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - hearts-queen-ui
+  - diamonds-queen-ui
+  - hearts-nine-ui
+  - hearts-ace-ui
+  - diamonds-jack-ui
+  - clubs-eight-ui
+  - hearts-two-ui
+  - diamonds-ace-ui
+  - diamonds-nine-ui
+  - hearts-king-ui
+  - hearts-jack-ui
+  - diamonds-king-ui
+  - diamonds-two-ui
+  - spades-eight-ui
+  - diamonds-four-ui
+  - spades-queen-ui
+  - clubs-nine-ui
+  - clubs-queen-ui
+  - spades-king-ui
+  - diamonds-five-ui
+  - clubs-king-ui
+  - diamonds-three-ui
+  - clubs-ace-ui
+  - hearts-eight-ui
+  - clubs-two-ui
+  - diamonds-seven-ui
+  - spades-ace-ui
+  - spades-jack-ui
+  - spades-nine-ui
+  - spades-two-ui
+  - diamonds-eight-ui
+  - clubs-jack-ui
+  - diamonds-six-ui
+  - diamonds-ten-ui
+  - hearts-four-ui
+  - hearts-six-ui
+  - hearts-seven-ui
+  - hearts-five-ui
+  - hearts-three-ui
+  - hearts-ten-ui
+  - clubs-seven-ui
+  - clubs-four-ui
+  - clubs-six-ui
+  - spades-ten-ui
+  - spades-three-ui
+  - spades-seven-ui
+  - clubs-ten-ui
+  - clubs-three-ui
+  - spades-four-ui
+  - spades-six-ui
+  - spades-five-ui
+  - clubs-five-ui
+  - card-back-ui
+  m_Tag: UICards
+  m_IsVariant: 0

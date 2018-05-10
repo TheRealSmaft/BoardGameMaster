@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: UIDice
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 4d4dd9032c05c7d4d9b793738feb5c1a, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 1eea982087763124ca064a3d096754ae, type: 3}
+  - {fileID: 21300000, guid: 1c1616765f2a1004eb5a51e00e838231, type: 3}
+  - {fileID: 21300000, guid: edcad508b42a6af48af27ddcb2c14346, type: 3}
+  - {fileID: 21300000, guid: efad22eb2cdcada4b84ed72a402ab40a, type: 3}
+  - {fileID: 21300000, guid: cd8d25d638d9b2a448729441ad1101b2, type: 3}
+  - {fileID: 21300000, guid: ff50cd4b6abeed74aa75ed73dfdcf6ae, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - ui-dice_two
+  - ui-dice_one
+  - ui-dice_four
+  - ui-dice_five
+  - ui-dice_six
+  - ui-dice_three
+  m_Tag: UIDice
+  m_IsVariant: 0

@@ -22,9 +22,9 @@ public class DiceRoller : PlayerAction {
     {
         if (_active)
         {
-            if (Input.GetButtonDown("Fire1") && !diceRolling && actionLimit > 0)
+            if (Input.GetButtonDown("Fire1") && !diceRolling)
             {
-                RollDice();
+                PerformAction();
                 diceRolling = true;
             }
 
@@ -47,9 +47,14 @@ public class DiceRoller : PlayerAction {
         }
     }
 
-    public void RollDice()
+    protected override void PerformAction()
     {
-        actionLimit--;
+        base.PerformAction();
+        RollDice();
+    }
+
+    private void RollDice()
+    {
         if(dice.Count > 0)
         {
             diceManager.DestroyUnselectedDice();

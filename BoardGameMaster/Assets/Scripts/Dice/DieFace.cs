@@ -13,4 +13,12 @@ public class DieFace : MonoBehaviour {
             die.SetFace(int.Parse(gameObject.name));
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "DieDropZone")
+        {
+            die.SetFace(0);
+        }
+    }
 }
