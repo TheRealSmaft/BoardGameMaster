@@ -11,7 +11,7 @@ public class DiceManager : MonoBehaviour {
 
     private void Awake()
     {
-        game = GameObject.FindGameObjectWithTag("GameMaster").GetComponentInChildren<IPlayable>() as IDicePlayable;
+        game = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<IPlayable>() as IDicePlayable;
     }
 
     public void AssignPlayer(Player p)
@@ -23,6 +23,14 @@ public class DiceManager : MonoBehaviour {
     {
         unselectedDice = dl;
         game.ActivatePostDiceRollActions(player);
+    }
+
+    public List<Die> GetAllDice()
+    {
+        List<Die> allDice = new List<Die>();
+        allDice.AddRange(selectedDice);
+        allDice.AddRange(unselectedDice);
+        return allDice;
     }
 
     public void ToggleDieSelection(Die die)

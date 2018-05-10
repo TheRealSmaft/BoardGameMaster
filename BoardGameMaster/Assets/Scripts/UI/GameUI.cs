@@ -28,16 +28,18 @@ public class GameUI : MonoBehaviour {
         foreach(Player p in players)
         {
             OpponentPanelPlayerEntry pe = Instantiate(opponentPanelPlayerEntryPrefab, opponentPanel);
-            pe.GetComponentInChildren<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, (panelHeightOffset * players.IndexOf(p)), 50f);
+            pe.GetComponentInChildren<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, (panelHeightOffset * players.IndexOf(p)), panelHeightOffset);
             pe.SetPlayerName(p.playerName);
+            opponentPanelPlayerEntries.Add(pe);
         }
     }
 
-    public void PopulatePlayerPanel()
+    public void SetPlayerPanelName(string playerName)
     {
-
+        Text pn = playerPanel.GetComponentInChildren<Text>();
+        pn.text = playerName;
     }
-
+    
     public void PopulateControlPanel()
     {
 

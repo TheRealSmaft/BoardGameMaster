@@ -9,6 +9,7 @@ TagManager:
   - GameMaster
   - ActionScriptManager
   - GameUI
+  - SpriteContainer
   layers:
   - Default
   - TransparentFX

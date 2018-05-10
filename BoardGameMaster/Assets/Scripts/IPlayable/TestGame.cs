@@ -9,6 +9,8 @@ public class TestGame : MonoBehaviour, IDicePlayable {
     private GameUI _gameUI;
     private ActionScriptManager _actionScriptManager;
 
+    public DicePanelUI dicePanelUI;
+
     public GameMaster gameMaster
     {
         get
@@ -59,6 +61,7 @@ public class TestGame : MonoBehaviour, IDicePlayable {
 
     public void StartPlayerTurn(Player p)
     {
+        gameUI.SetPlayerPanelName(p.playerName);
         p.gameObject.SetActive(true);
         p.ToggleBehaviorScript(p.GetComponentInChildren<DiceRoller>(), true);
     }
@@ -66,6 +69,7 @@ public class TestGame : MonoBehaviour, IDicePlayable {
     public void EndPlayerTurn(Player p)
     {
         p.gameObject.SetActive(false);
+        dicePanelUI.gameObject.SetActive(false);
         p.ToggleBehaviorScript(p.GetComponentInChildren<DiceRoller>(), false);
         StartPlayerTurn(gameMaster.GetNextPlayer(p));
     }
@@ -87,6 +91,9 @@ public class TestGame : MonoBehaviour, IDicePlayable {
 
     public void ActivatePostDiceRollActions(Player p)
     {
-        p.ToggleBehaviorScript(p.GetComponentInChildren<DiceSelector>(), true);
+        dicePanelUI.UpdateDicePanel(p);
+        dicePanelUI.gameObject.SetActive(true);
+        p.ToggleBehaviorScript(p.GetComponent<DiceSelector>(), true);
+        p.ToggleBehaviorScript(p.GetComponent<YahtzyScoreSelector>(), true);
     }
 }

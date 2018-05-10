@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114613402417621322}
   - component: {fileID: 114007938077481842}
   - component: {fileID: 114392262535977448}
+  - component: {fileID: 114127175196717490}
   m_Layer: 0
   m_Name: ActionScriptManager
   m_TagString: ActionScriptManager
@@ -54,9 +55,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionLimit: 3
+  actionLimited: 1
   diePrefab: {fileID: 114937752667967030, guid: acdec9844216f4f44a1427740d5fbc24,
     type: 2}
   diceCount: 5
+  diceAtlas: {fileID: 4343727234628468602, guid: 3dedaa283b8af7b4694fbd9969d47999,
+    type: 2}
+--- !u!114 &114127175196717490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805960584413994}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344fe1fb8d860cb4b93f51f1c1fa3539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionLimit: 0
+  actionLimited: 0
 --- !u!114 &114392262535977448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -69,6 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionLimit: 0
+  actionLimited: 0
 --- !u!114 &114613402417621322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,6 +98,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b28a634ffdefc34e84f8b0d323251ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionScripts:
-  - {fileID: 114007938077481842}
-  - {fileID: 114392262535977448}

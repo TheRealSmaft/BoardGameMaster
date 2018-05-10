@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class ActionScriptManager : MonoBehaviour {
 
-    public Component[] actionScripts;
-
     public void AddRelevantPlayerActionScripts(Player p)
     {
-        foreach (Component c in actionScripts)
+        PlayerAction[] playerActions = GetComponents<PlayerAction>();
+        foreach (PlayerAction action in playerActions)
         {
-            AddScriptToPlayer<Component>(c, p.gameObject);
+            AddScriptToPlayer(action, p.gameObject);
         }
     }
 
-    private void AddScriptToPlayer<T>(T action, GameObject p) where T : Component
+    private void AddScriptToPlayer<T>(T action, GameObject p) where T : PlayerAction
     {
         System.Type type = action.GetType();
-        Component clone = p.AddComponent(type);
+        PlayerAction clone = p.AddComponent(type) as PlayerAction;
 
         System.Reflection.FieldInfo[] fields = type.GetFields();
 

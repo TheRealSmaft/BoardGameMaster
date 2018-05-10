@@ -7,11 +7,13 @@ public class Player : MonoBehaviour {
 
     public string playerName;
     private IPlayable game;
+    private GameUI gameUI;
 
     public void AssignGame(IPlayable g)
     {
         game = g;
         game.actionScriptManager.AddRelevantPlayerActionScripts(this);
+        gameUI = GameObject.FindGameObjectWithTag("GameUI").GetComponent<GameUI>();
     }
 
     public void ToggleBehaviorScript<T>(T action, bool active) where T : PlayerAction
@@ -31,5 +33,8 @@ public class Player : MonoBehaviour {
         }
     }
 
-    
+    public void EndPlayerTurn()
+    {
+        game.EndPlayerTurn(this);
+    }
 }
