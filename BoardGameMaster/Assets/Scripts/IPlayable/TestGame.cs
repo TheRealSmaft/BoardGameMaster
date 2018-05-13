@@ -6,10 +6,7 @@ using UnityEngine;
 public class TestGame : MonoBehaviour, IDicePlayable {
 
     private GameMaster _gameMaster;
-    private GameUI _gameUI;
     private ActionScriptManager _actionScriptManager;
-
-    public DicePanelUI dicePanelUI;
 
     public GameMaster gameMaster
     {
@@ -20,18 +17,6 @@ public class TestGame : MonoBehaviour, IDicePlayable {
         private set
         {
             _gameMaster = value;
-        }
-    }
-
-    public GameUI gameUI
-    {
-        get
-        {
-            return _gameUI;
-        }
-        private set
-        {
-            _gameUI = value;
         }
     }
 
@@ -47,10 +32,9 @@ public class TestGame : MonoBehaviour, IDicePlayable {
         }
     }
     
-    public void SetupGame(GameMaster gm, GameUI ui)
+    public void SetupGame(GameMaster gm)
     {
         gameMaster = gm;
-        gameUI = ui;
         actionScriptManager = GameObject.FindGameObjectWithTag("ActionScriptManager").GetComponent<ActionScriptManager>();
     }
 
@@ -61,7 +45,6 @@ public class TestGame : MonoBehaviour, IDicePlayable {
 
     public void StartPlayerTurn(Player p)
     {
-        gameUI.SetPlayerPanelName(p.playerName);
         p.gameObject.SetActive(true);
         p.ToggleBehaviorScript(p.GetComponentInChildren<DiceRoller>(), true);
     }
@@ -69,7 +52,6 @@ public class TestGame : MonoBehaviour, IDicePlayable {
     public void EndPlayerTurn(Player p)
     {
         p.gameObject.SetActive(false);
-        dicePanelUI.gameObject.SetActive(false);
         p.ToggleBehaviorScript(p.GetComponentInChildren<DiceRoller>(), false);
         StartPlayerTurn(gameMaster.GetNextPlayer(p));
     }
@@ -91,8 +73,6 @@ public class TestGame : MonoBehaviour, IDicePlayable {
 
     public void ActivatePostDiceRollActions(Player p)
     {
-        dicePanelUI.UpdateDicePanel(p);
-        dicePanelUI.gameObject.SetActive(true);
         p.ToggleBehaviorScript(p.GetComponent<DiceSelector>(), true);
         p.ToggleBehaviorScript(p.GetComponent<YahtzyScoreSelector>(), true);
     }

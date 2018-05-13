@@ -33,17 +33,17 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 1eea982087763124ca064a3d096754ae, type: 3}
+  - {fileID: 21300000, guid: ff50cd4b6abeed74aa75ed73dfdcf6ae, type: 3}
   - {fileID: 21300000, guid: 1c1616765f2a1004eb5a51e00e838231, type: 3}
+  - {fileID: 21300000, guid: cd8d25d638d9b2a448729441ad1101b2, type: 3}
   - {fileID: 21300000, guid: edcad508b42a6af48af27ddcb2c14346, type: 3}
   - {fileID: 21300000, guid: efad22eb2cdcada4b84ed72a402ab40a, type: 3}
-  - {fileID: 21300000, guid: cd8d25d638d9b2a448729441ad1101b2, type: 3}
-  - {fileID: 21300000, guid: ff50cd4b6abeed74aa75ed73dfdcf6ae, type: 3}
   m_PackedSpriteNamesToIndex:
   - ui-dice_2
+  - ui-dice_3
   - ui-dice_1
+  - ui-dice_6
   - ui-dice_4
   - ui-dice_5
-  - ui-dice_6
-  - ui-dice_3
   m_Tag: UIDice
   m_IsVariant: 0
