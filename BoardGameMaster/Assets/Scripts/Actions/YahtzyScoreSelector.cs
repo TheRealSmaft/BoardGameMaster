@@ -4,18 +4,7 @@ using UnityEngine;
 
 public class YahtzyScoreSelector : PlayerAction {
 
-    private void Update()
-    {
-        if(_active)
-        {
-            if(Input.GetButtonDown("Jump"))
-            {
-                PerformAction();
-            }
-        }
-    }
-
-    protected override void PerformAction()
+    public override void PerformAction()
     {
         base.PerformAction();
         player.EndPlayerTurn();

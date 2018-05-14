@@ -6,7 +6,9 @@ using UnityEngine;
 public class TestGame : MonoBehaviour, IDicePlayable {
 
     private GameMaster _gameMaster;
-    private ActionScriptManager _actionScriptManager;
+    private GameUI _gameUI;
+
+    public PlayerAction[] playerActions;
 
     public GameMaster gameMaster
     {
@@ -20,22 +22,22 @@ public class TestGame : MonoBehaviour, IDicePlayable {
         }
     }
 
-    public ActionScriptManager actionScriptManager
+    public GameUI gameUI
     {
         get
         {
-            return _actionScriptManager;
+            return _gameUI;
         }
         private set
         {
-            _actionScriptManager = value;
+            _gameUI = value;
         }
     }
-    
-    public void SetupGame(GameMaster gm)
+
+    public void SetupGame(GameMaster gm, GameUI gui)
     {
         gameMaster = gm;
-        actionScriptManager = GameObject.FindGameObjectWithTag("ActionScriptManager").GetComponent<ActionScriptManager>();
+        gameUI = gui;
     }
 
     public void StartGame(Player p)
@@ -46,13 +48,16 @@ public class TestGame : MonoBehaviour, IDicePlayable {
     public void StartPlayerTurn(Player p)
     {
         p.gameObject.SetActive(true);
-        p.ToggleBehaviorScript(p.GetComponentInChildren<DiceRoller>(), true);
+        gameUI.SetPlayer(p);
+        foreach (PlayerAction pa in playerActions)
+        {
+            pa.AssignPlayer(p);
+        }
     }
 
     public void EndPlayerTurn(Player p)
     {
         p.gameObject.SetActive(false);
-        p.ToggleBehaviorScript(p.GetComponentInChildren<DiceRoller>(), false);
         StartPlayerTurn(gameMaster.GetNextPlayer(p));
     }
 
@@ -73,7 +78,5 @@ public class TestGame : MonoBehaviour, IDicePlayable {
 
     public void ActivatePostDiceRollActions(Player p)
     {
-        p.ToggleBehaviorScript(p.GetComponent<DiceSelector>(), true);
-        p.ToggleBehaviorScript(p.GetComponent<YahtzyScoreSelector>(), true);
     }
 }

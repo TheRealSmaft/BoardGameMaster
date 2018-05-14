@@ -25,4 +25,8 @@ public class FlexibleUIData : ScriptableObject {
     public Color warningTextColor;
     public Sprite warningIcon;
 
+    public Color rollDiceColor;
+    public Color rollDiceTextColor;
+    public Sprite rollDiceIcon;
+
 }

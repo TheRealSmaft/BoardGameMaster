@@ -11,45 +11,30 @@ public class DiceRoller : PlayerAction {
     private List<Die> dice = new List<Die>();
     private bool diceRolling;
 
-    public override void Init()
-    {
-        base.Init();
-        diceManager = gameObject.AddComponent<DiceManager>();
-        diceManager.AssignPlayer(player);
-    }
-
     private void Update()
     {
-        if (_active)
+        if (diceRolling)
         {
-            if (Input.GetButtonDown("Fire1") && !diceRolling)
+            foreach (Die die in dice)
             {
-                PerformAction();
-                diceRolling = true;
-            }
-
-            if (diceRolling)
-            {
-                foreach (Die die in dice)
+                if (die.dieValue == 0)
                 {
-                    if (die.dieValue == 0)
-                    {
-                        break;
-                    }
+                    break;
+                }
 
-                    if (dice.IndexOf(die) + 1 >= dice.Count)
-                    {
-                        diceRolling = false;
-                        diceManager.SubmitDice(dice);
-                    }
+                if (dice.IndexOf(die) + 1 >= dice.Count)
+                {
+                    diceRolling = false;
+                    diceManager.SubmitDice(dice);
                 }
             }
         }
     }
 
-    protected override void PerformAction()
+    public override void PerformAction()
     {
         base.PerformAction();
+        diceManager = player.diceManager;
         RollDice();
     }
 
@@ -65,20 +50,14 @@ public class DiceRoller : PlayerAction {
         {
             StartCoroutine(InstantiateDice(diceToInstantiate));
         }
-
-        if (actionLimit <= 0)
-        {
-            this.enabled = false;
-        }
     }
 
     private IEnumerator InstantiateDice(int diceToInstantiate)
     {
         for (int i = 0; i < diceToInstantiate; i++)
         {
-            Die die = Instantiate(diePrefab, player.transform);
+            Die die = Instantiate(diePrefab, diceManager.transform);
             dice.Add(die);
-            die.AssignPlayer(player);
             die.transform.Translate(Vector3.up, Space.World);
             die.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
             yield return new WaitForSeconds(.05f);

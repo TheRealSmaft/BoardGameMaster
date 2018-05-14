@@ -3,46 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAction : MonoBehaviour {
-    
-    protected bool _active = false;
-    public bool active
-    {
-        get
-        {
-            return _active;
-        }
-        set
-        {
-            _active = value;
-        }
-    }
-
-    public int actionLimit;
-    public bool actionLimited = true;
 
     protected Player player;
+    public int actionLimit;
+    public bool isLimited;
 
-    public virtual void Init()
+    private int actionsRemaining;
+
+    public void AssignPlayer(Player p)
     {
-        if(!_active)
+        player = p;
+        ClearActions();
+        this.enabled = true;
+    }
+
+    public virtual void PerformAction()
+    {
+        if(actionsRemaining > 0)
         {
-            return;
+            actionsRemaining--;
+        }
+        else
+        {
+            this.enabled = false;
         }
     }
 
-    private void Awake()
+    protected virtual void ClearActions()
     {
-        player = GetComponent<Player>();
-    }
-
-    protected virtual void PerformAction()
-    {
-        if(actionLimited)
-        {
-            if (actionLimit > 0)
-            {
-                actionLimit--;
-            }
-        }
+        actionsRemaining = actionLimit;
     }
 }

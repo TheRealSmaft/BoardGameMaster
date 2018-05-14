@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
-    
+
+    public GameUI gameUI;
     public List<Player> players;
     private IPlayable game;
 
     private void Awake()
     {
         game = GetComponent<IPlayable>();
-        game.SetupGame(this);
+        game.SetupGame(this, gameUI);
 
         foreach(Player p in players)
         {

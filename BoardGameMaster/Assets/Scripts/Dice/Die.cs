@@ -8,14 +8,15 @@ public class Die : MonoBehaviour
     public Material[] materials;
 
     private int face;
-    private Player player;
     private Rigidbody rb;
     private MeshRenderer meshRenderer;
+    private Vector3 rollPosition;
     private float rerollCountdown = 6f;
     private bool selected = false;
 
     private void Start()
     {
+        rollPosition = transform.position;
         meshRenderer = GetComponent<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
         rb.AddTorque(new Vector3(Random.Range(0f, 600f), Random.Range(0f, 600f), Random.Range(0f, 600f)));
@@ -40,12 +41,7 @@ public class Die : MonoBehaviour
             }
         }
     }
-
-    public void AssignPlayer(Player p)
-    {
-        player = p;
-    }
-
+    
     public void SetFace(int f)
     {
         face = f;
@@ -53,7 +49,7 @@ public class Die : MonoBehaviour
 
     public void Reroll()
     {
-        transform.position = player.transform.position + Vector3.up;
+        transform.position = rollPosition;
         rerollCountdown = 6f;
     }
 

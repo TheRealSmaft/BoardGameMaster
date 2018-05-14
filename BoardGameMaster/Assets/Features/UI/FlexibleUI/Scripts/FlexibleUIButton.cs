@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 [RequireComponent(typeof(Button))]
 [RequireComponent(typeof(Image))]
 [RequireComponent(typeof(Text))]
@@ -14,7 +13,8 @@ public class FlexibleUIButton : FlexibleUI {
         Default,
         Confirm,
         Decline,
-        Warning
+        Warning,
+        RollDice
     }
 
     Image image;
@@ -60,6 +60,12 @@ public class FlexibleUIButton : FlexibleUI {
                 image.color = skinData.warningColor;
                 icon.sprite = skinData.warningIcon;
                 text.color = skinData.warningTextColor;
+                break;
+            case ButtonType.RollDice:
+                image.color = skinData.rollDiceColor;
+                icon.sprite = skinData.rollDiceIcon;
+                text.color = skinData.rollDiceTextColor;
+                text.text = "Roll Dice";
                 break;
         }
     }

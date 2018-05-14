@@ -6,16 +6,13 @@ public class DiceSelector : PlayerAction {
 
     private void Update()
     {
-        if(_active)
+        if(Input.GetButtonDown("Fire2"))
         {
-            if(Input.GetButtonDown("Fire2"))
-            {
-                PerformAction();
-            }
+            PerformAction();
         }
     }
 
-    protected override void PerformAction()
+    public override void PerformAction()
     {
         base.PerformAction();
         SelectDie();
@@ -26,7 +23,7 @@ public class DiceSelector : PlayerAction {
         Transform obj = BGMGlobal.GetClickedGameObject();
         if (obj.tag == "Die")
         {
-            player.GetComponentInChildren<DiceManager>().ToggleDieSelection(obj.GetComponent<Die>());
+            player.GetComponent<DiceManager>().ToggleDieSelection(obj.GetComponent<Die>());
         }
     }
 }
